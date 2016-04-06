@@ -31,7 +31,8 @@ describe('annotation-poller', function () {
       }]
     })
 
-    var poller = annotationPoller({pollInterval: 50}, function () {
+    var poller = annotationPoller({pollInterval: 50})
+    poller.start(function () {
       poller.annotations['abc-123-abc'].status = 'warn'
       poller.annotations['abc-123-abc'].description = 'foo security integration'
       poller.stop()
@@ -53,7 +54,8 @@ describe('annotation-poller', function () {
       }]
     })
 
-    var poller = annotationPoller({pollInterval: 50}, function () {
+    var poller = annotationPoller({pollInterval: 50})
+    poller.start(function () {
       $('ul li').length.should.equal(1)
       $('ul li').text().should.match(/my awesome integration/)
       poller.stop()
@@ -75,7 +77,8 @@ describe('annotation-poller', function () {
       }]
     })
 
-    var poller = annotationPoller({pollInterval: 50}, function () {
+    var poller = annotationPoller({pollInterval: 50})
+    poller.start(function () {
       $.mockjax.clear()
       $.mockjax({
         url: endpoint,
@@ -113,7 +116,8 @@ describe('annotation-poller', function () {
       }]
     })
 
-    var poller = annotationPoller({pollInterval: 50}, function () {
+    var poller = annotationPoller({pollInterval: 50})
+    poller.start(function () {
       $.mockjax.clear()
       $.mockjax({
         url: endpoint,

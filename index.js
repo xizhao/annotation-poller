@@ -1,35 +1,33 @@
 var $ = require('jquery')
 var Mustache = require('mustache')
 
-function AnnotationPoller (opts, loaded) {
-  var _this = this
+function AnnotationPoller (opts) {
   this.pollInterval = opts.pollInterval || 3000
   this.endpoint = '/api/v1/annotations.js'
   this.annotations = {}
   this.template = '<li id="annotation-{{id}}" style="{{status}}"><span>{{description}}</span><a href="{{{external-link}}}">{{external-link-text}}</a></li>'
   this.addonSelector = '#npm-addon-box'
-
-  $(document).ready(function () {
-    _this.start(loaded)
-  })
 }
 
 AnnotationPoller.prototype.start = function (loaded) {
   var _this = this
   var updating = false
-  this.interval = setInterval(function () {
-    if (updating) return
-    updating = true
 
-    _this.getAnnotations(function () {
-      updating = false
-      _this.renderAnnotations()
-      if (loaded) {
-        loaded()
-        loaded = null
-      }
-    })
-  }, this.pollInterval)
+  $(document).ready(function () {
+    this.interval = setInterval(function () {
+      if (updating) return
+      updating = true
+
+      _this.getAnnotations(function () {
+        updating = false
+        _this.renderAnnotations()
+        if (loaded) {
+          loaded()
+          loaded = null
+        }
+      })
+    }, this.pollInterval)
+  })
 }
 
 AnnotationPoller.prototype.stop = function () {
@@ -68,6 +66,6 @@ AnnotationPoller.prototype.renderAnnotations = function () {
   })
 }
 
-module.exports = function (opts, loaded) {
-  return new AnnotationPoller(opts, loaded)
+module.exports = function (opts) {
+  return new AnnotationPoller(opts)
 }
