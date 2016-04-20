@@ -116,27 +116,33 @@ AnnotationPoller.prototype.renderAnnotations = function () {
 
 AnnotationPoller.prototype._applyReplacements = function (obj) {
   var _this = this
-  ;(obj.rows || []).forEach(function (row) {
-    // bold any text in between *foo*.
-    if (row.text) {
-      row.text = _this._escape(row.text)
-      row.text = row.text.replace(/\*(.+)\*/, '<b>$1</b>')
-    }
+  if ($.isArray(obj.rows)) {
+    obj.rows.forEach(function (row) {
+      // bold any text in between *foo*.
+      if (row.text) {
+        row.text = _this._escape(row.text)
+        row.text = row.text.replace(/\*(.+)\*/, '<b>$1</b>')
+      }
 
-    // escape any HTML in links.
-    if ($.isArray(row.link)) {
-      row.link.forEach(function (l) {
-        if (l.url) l.url = _this._escape(l.url)
-      })
-    } else if (row.link) {
-      if (row.link.url) row.link.url = _this._escape(row.link.url)
-    }
+      // escape any HTML in links.
+      if ($.isArray(row.link)) {
+        row.link.forEach(function (l) {
+          if (l.url) l.url = _this._escape(l.url)
+        })
+      } else if (row.link) {
+        if (row.link.url) row.link.url = _this._escape(row.link.url)
+      }
 
-    // escape any HTML in image links.
-    if (row.image) {
-      if (row.image.url) row.image.url = _this._escape(row.image.url)
-    }
-  })
+      // escape any HTML in image links.
+      if (row.image) {
+        if (row.image.url) row.image.url = _this._escape(row.image.url)
+      }
+    })
+  } else {
+    // we shouldn't allow obj.rows
+    // to be a non-array value.
+    obj.rows = []
+  }
   return obj
 }
 
