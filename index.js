@@ -37,7 +37,7 @@ function AnnotationPoller (opts) {
 }
 
 AnnotationPoller.prototype._installExtensions = function () {
-  Handlebars.registerHelper('hasKey', function(obj, key, options) {
+  Handlebars.registerHelper('hasKey', function (obj, key, options) {
     if (typeof obj === 'object' && obj[key]) {
       return options.fn(this)
     } else {
@@ -45,7 +45,7 @@ AnnotationPoller.prototype._installExtensions = function () {
     }
   })
 
-  Handlebars.registerHelper('isArray', function(obj, key, options) {
+  Handlebars.registerHelper('isArray', function (obj, key, options) {
     if ($.isArray(obj[key])) {
       return options.fn(this)
     } else {
@@ -141,7 +141,7 @@ AnnotationPoller.prototype._applyReplacements = function (obj) {
 }
 
 AnnotationPoller.prototype._escape = function (text) {
-  return $("<div>").text(text).html()
+  return $('<div>').text(text).html()
 }
 
 module.exports = function (opts) {
