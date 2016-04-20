@@ -11,7 +11,7 @@ function AnnotationPoller (opts) {
   this.template = Handlebars.compile(
     '<li id="annotation-{{id}}" style="{{status}}" data-fingerprint={{fingerprint}}>' +
     '<ul class="addon-container">' +
-    '  <li><h3>{{title}}</h3></li>' +
+    '  <li><h3>{{name}}</h3></li>' +
     '  {{#each rows}}' +
     '    <li>' +
     '    {{#hasKey this "image"}}' +

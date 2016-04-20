@@ -24,7 +24,7 @@ describe('annotation-poller', function () {
       url: endpoint,
       responseText: [{
         id: 'abc-123-abc',
-        title: 'Awesome Integration',
+        name: 'Awesome Integration',
         fingerprint: 'a',
         rows: [{
           image: {
@@ -54,7 +54,7 @@ describe('annotation-poller', function () {
       url: endpoint,
       responseText: [{
         id: 'abc-123-abc',
-        title: 'second integration',
+        name: 'second integration',
         fingerprint: 'b',
         rows: [{
           link: {
@@ -79,7 +79,7 @@ describe('annotation-poller', function () {
       url: endpoint,
       responseText: [{
         id: 'abc-123-abc',
-        title: 'second integration',
+        name: 'second integration',
         fingerprint: 'c',
         rows: [{
           text: 'my *awesome* <b>message</b>'
@@ -100,7 +100,7 @@ describe('annotation-poller', function () {
       url: endpoint,
       responseText: [{
         id: 'abc-123-abc',
-        title: 'second integration',
+        name: 'second integration',
         fingerprint: 'd',
         rows: [{
           link: [{url: 'http://example.com', text: 'link 1'}, {url: 'http://2.example.com', text: 'link 2'}]
@@ -122,7 +122,7 @@ describe('annotation-poller', function () {
       url: endpoint,
       responseText: [{
         id: 'abc-123-abc',
-        title: 'third integration',
+        name: 'third integration',
         fingerprint: 'foo',
         rows: [{
           link: {
@@ -140,7 +140,7 @@ describe('annotation-poller', function () {
         url: endpoint,
         responseText: [{
           id: 'abc-123-abc',
-          title: 'third integration',
+          name: 'third integration',
           fingerprint: 'bar',
           rows: [{
             link: {
@@ -165,7 +165,7 @@ describe('annotation-poller', function () {
       url: endpoint,
       responseText: [{
         id: 'abc-123-abc',
-        title: 'third integration',
+        name: 'third integration',
         fingerprint: 'foo',
         rows: [{
           link: {
@@ -183,7 +183,7 @@ describe('annotation-poller', function () {
         url: endpoint,
         responseText: [{
           id: 'fed-123-abc',
-          title: 'third integration',
+          name: 'third integration',
           fingerprint: 'foo',
           rows: [{
             link: {
