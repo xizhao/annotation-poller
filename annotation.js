@@ -11,11 +11,13 @@ templates['annotation.mustache'] = template({"1":function(container,depth0,helpe
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda;
 
-  return "          <img src=\""
+  return "          <a href=\""
+    + ((stack1 = alias1(((stack1 = (depth0 != null ? depth0.image : depth0)) != null ? stack1.href : stack1), depth0)) != null ? stack1 : "")
+    + "\"><img src=\""
     + ((stack1 = alias1(((stack1 = (depth0 != null ? depth0.image : depth0)) != null ? stack1.url : stack1), depth0)) != null ? stack1 : "")
     + "\" alt=\""
     + container.escapeExpression(alias1(((stack1 = (depth0 != null ? depth0.image : depth0)) != null ? stack1.text : stack1), depth0))
-    + "\" />\n";
+    + "\" /></a>\n";
 },"4":function(container,depth0,helpers,partials,data) {
     var stack1;
 
