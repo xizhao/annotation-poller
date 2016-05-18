@@ -4,7 +4,11 @@
     {{#each rows}}
       <li>
         {{#hasKey this "image"}}
-          <a href="{{{image.href}}}"><img src="{{{image.url}}}" alt="{{image.text}}" /></a>
+          {{#hasKey this.image "href"}}
+            <a href="{{{image.href}}}" style="border: none;text-decoration: none;"><img src="{{{image.url}}}" alt="{{image.text}}" /></a>
+          {{else}}
+            <img src="{{{image.url}}}" alt="{{image.text}}" />
+          {{/hasKey}}
         {{/hasKey}}
         {{#hasKey this "link"}}
         {{#isArray this "link"}}
