@@ -289,4 +289,30 @@ describe('annotation-poller', function () {
       return done()
     })
   })
+
+  it('renders fullsize images', function (done) {
+    $.mockjax({
+      url: endpoint, 
+      responseText: [{
+        id: 'test-fullsize-images',
+        name: 'fullsize images',
+        fingerprint: 'tfi',
+        rows: [{
+          image: {
+            url: 'http://www.example.com/img1.png',
+            text: 'my awesome image',
+            fullSize: true
+          }
+        }]
+      }]
+    })
+
+    var poller = annotationPoller({pollInterval: 50, pkg: pkg})
+    poller.start(function () {
+      $('.addon-container:last > li > img').length.should.be.equal(1);
+      $('.addon-container:last > li > img').css('width').should.be.equal('100%');
+      poller.stop()
+      return done()
+    })
+  })
 })
