@@ -9,8 +9,7 @@
     "prepublish": "npm run build",
     "test": "nyc mocha --timeout=10000 test.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "version": "standard-version",
-    "build": "npm pretest && browserify ./index.js -o ./bin/annotation-poller.min.js"
+    "version": "standard-version"
   },
   "repository": {
     "type": "git",
